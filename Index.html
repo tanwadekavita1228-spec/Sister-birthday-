@@ -1,0 +1,161 @@
+Her 18th !!!!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 18th Birthday 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      text-align: center;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-top: 30px;
+    }
+
+    .message {
+      max-width: 90%;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 25px;
+      border-radius: 20px;
+      font-size: 1.1em;
+      line-height: 1.7;
+    }
+
+    .slider {
+      width: 90%;
+      max-width: 400px;
+      height: 500px;
+      margin: 30px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .slides {
+      display: flex;
+      width: 600%;
+      animation: slide 18s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      16% { transform: translateX(0); }
+      20% { transform: translateX(-100%); }
+      36% { transform: translateX(-100%); }
+      40% { transform: translateX(-200%); }
+      56% { transform: translateX(-200%); }
+      60% { transform: translateX(-300%); }
+      76% { transform: translateX(-300%); }
+      80% { transform: translateX(-400%); }
+      96% { transform: translateX(-400%); }
+      100% { transform: translateX(-500%); }
+    }
+
+    footer {
+      margin: 30px 0;
+      font-size: 0.9em;
+      opacity: 0.9;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<h1>🎂 Happy 18th Birthday Taideee 💖</h1>
+
+<div class="slider">
+  <div class="slides">
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <img src="photo4.jpg">
+    <img src="photo5.jpg">
+    <img src="photo6.jpg">
+  </div>
+</div>
+
+<div class="message">
+  Firstly I hate you sm and I need to let you know how amazing you are! 💗  
+  You have always been incredibly helpful and lucky for me.  
+
+  <br><br>
+  I will be right there for you at any cost. You owe me everything I have!!  
+
+  <br><br>
+  I am so glad to have an elder sister like you.  
+
+  <br><br>
+  Now as you are turning 18, may the best things find their way to you and make your life more beautiful and adventurous!!  
+
+  <br><br>
+  <strong>Happiest Birthday Taideee 💌💌</strong>
+</div>
+
+<footer>
+  Made with love 💕
+</footer>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_1f6c89f1f3.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let pieces = [];
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 4,
+      c: `hsl(${Math.random() * 360},100%,70%)`,
+      s: Math.random() * 3 + 2
+    });
+  }
+
+  function confetti() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.c;
+      ctx.fill();
+      p.y += p.s;
+      if (p.y > canvas.height) p.y = 0;
+    });
+    requestAnimationFrame(confetti);
+  }
+
+  confetti();
+</script>
+
+</body>
+</html>
